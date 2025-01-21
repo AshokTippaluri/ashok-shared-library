@@ -1,3 +1,3 @@
-def call(String name, String dayOfTheWeek) {
-  sh "echo  hi ${name} and today is ${dayOfTheWeek}"
+def call(Map config = [:]) {
+    sh "echo Hello ${config.name}. Today is ${config.dayOfWeek}."
 }
