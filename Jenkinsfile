@@ -6,5 +6,10 @@ pipeline {
                 sh 'date'
             }
         }
+        stage('docker images ls') {
+            steps {
+                sh 'docker images'
+            }
+        }
     }
 }
