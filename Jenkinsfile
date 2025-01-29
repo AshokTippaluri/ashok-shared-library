@@ -6,9 +6,14 @@ pipeline {
                 sh 'date'
             }
         }
-        stage('docker images ls') {
+        stage('List Docker Images') {
             steps {
                 sh 'docker images'
+            }
+        }
+        stage('Nginx installation Docker') {
+            steps {
+                sh 'docker run -d -p 8085:80 --name test-container nginx:alpine'
             }
         }
     }
