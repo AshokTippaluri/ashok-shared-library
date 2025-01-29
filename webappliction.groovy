@@ -1,12 +1,13 @@
 node{
+  def message = 'Hello world'
   stage('My first stage') {
-    echo 'Hello world!'
+    echo "${message}"
   }
 
   stage('My second stage') {
-    def message = 'Hello world'
+    // def message = 'Hello world'
 
-    echo 'Greeting: ${message}'
+    // echo 'Greeting: ${message}'
     echo "Greeting: ${message}"
   }
 
@@ -14,6 +15,7 @@ node{
 
   stage("My ${stageNum} stage") {
     echo 'Workspace:'
+    echo "Greeting: ${message}"
     sh(script: 'ls -la')
   }
 }
