@@ -12,6 +12,18 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 sh "rm -rf ${WORK_DIR} && git clone ${HTML_REPO} ${WORK_DIR}"
+
+                sh """
+                  if [ -d "${WORK_DIR}/web/order-summary-component-card" ]; then
+                        echo "Directory exists"
+                        cd ${WORK_DIR}/web/order-summary-component-card
+                  else
+                       echo "Directory NOT found!"
+                       ls -R ${WORK_DIR}  # Debugging output
+                       exit 1  # Stop the build if the directory is missing
+                  fi
+                 """
+
                 sh "cd /tmp/workdir/web/order-summary-component-card"
             }
         }
