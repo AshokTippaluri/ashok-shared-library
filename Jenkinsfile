@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "NG_project"
+        IMAGE_NAME = "ng_project"
         CONTAINER_NAME = "NG_nginx-container"
         HTML_REPO = "https://github.com/AshokTippaluri/web.git"
         WORK_DIR = "/tmp/workdir"
