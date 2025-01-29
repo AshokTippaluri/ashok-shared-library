@@ -5,7 +5,7 @@ pipeline {
         IMAGE_NAME = "NG_project"
         CONTAINER_NAME = "NG_nginx-container"
         HTML_REPO = "https://github.com/AshokTippaluri/web.git"
-        WORK_DIR = "/tmp/"
+        WORK_DIR = "/tmp/workdir"
     }
 
     stages {
