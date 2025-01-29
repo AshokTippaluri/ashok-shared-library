@@ -12,6 +12,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 sh "rm -rf ${WORK_DIR} && git clone ${HTML_REPO} ${WORK_DIR}"
+                sh "cd /tmp/workdir/order-summary-component-card"
             }
         }
 
@@ -21,7 +22,7 @@ pipeline {
                     sh """
                         cd ${WORK_DIR}
                         echo 'FROM nginx:latest' > Dockerfile
-                        echo 'COPY /tmp/web/order-summary-component-card/ /usr/share/nginx/html' >> Dockerfile
+                        echo 'COPY . /usr/share/nginx/html' >> Dockerfile
                         docker build -t ${IMAGE_NAME} .
                     """
                 }
