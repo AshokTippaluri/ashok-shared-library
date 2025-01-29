@@ -12,7 +12,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 sh "rm -rf ${WORK_DIR} && git clone ${HTML_REPO} ${WORK_DIR}"
-                sh "cd /tmp/workdir/order-summary-component-card"
+                sh "cd /tmp/workdir/web/order-summary-component-card"
             }
         }
 
