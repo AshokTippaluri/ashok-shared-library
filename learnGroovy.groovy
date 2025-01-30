@@ -1,64 +1,61 @@
-node {
-    stage('Execute Groovy Script') {
-        try {
-            def message = "Hello Ashok, how are you?" // Defining variable
-            println message // Calling variable
+def message = "Hello ashok how are you" // defining variable 
 
-            // Print Jenkins version (Requires script approval)
-            try {
-                println "Jenkins Version: " + Jenkins.instance.getVersion()
-            } catch (Exception e) {
-                println "Access denied to Jenkins.instance.getVersion() due to script security."
-            }
+println message // calling variable 
 
-            // Variable assignments
-            def x = 1
-            println x
+println Jenkins.instance.getVersion() // jenkins version
 
-            x = new java.util.Date()
-            println x
+def x =1
+println x
 
-            x = false
-            println x
+x = new java.util.Date()
+println x
 
-            // List operations
-            def list = []
-            println list
-            list = ["apple", "cat"]
-            println list
+x = false
+println x
 
-            list.add("dog")
-            println list
 
-            list << "tiger"
-            println list
+def list = []
+println list
+list = ["apple", "cat"]
 
-            list.addAll(["pig", "rat"])
-            println list
+println list
 
-            list.remove("cat")
-            println list
+list.add("dog")
 
-            list = list - "rat"
-            println list
+println list
 
-            list.each { println "animal : $it" }
+list << "tiger"
 
-            list.eachWithIndex { it, i -> println "$i: $it"}
+println list
 
-            boolean contain = list.contains("apple")
-            boolean y = "dog" in list
-            println y
 
-            boolean allPresent = list.containsAll(['apple', 'dog'])
-            println allPresent
+list.addAll(["pig", "rat"])
+println list
 
-            list.sort()
-            def z = list.sort(false)
-            println z
+list.remove("cat")
+println list
 
-        } catch (Exception e) {
-            println "Error encountered: ${e.message}"
-        }
-    }
-}
+list = list - "rat"
+
+println list
+
+list.each { println "animal : $it" }
+
+list.eachWithIndex { it, i -> println "$i: $it"}
+
+
+contain = list.contains( "apple" )
+
+y = "dog" in list
+
+println y
+
+
+list.containsAll(['apple','dog'])
+
+
+list.sort()
+
+z = list.sort( false )
+
+println z
